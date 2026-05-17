@@ -74,6 +74,11 @@
   content: "Delete";
 }
 
+.todo__name_completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 630px) {
   .todo__label {
     display: grid;
