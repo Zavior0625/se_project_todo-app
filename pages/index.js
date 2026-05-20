@@ -20,11 +20,11 @@ const todoNameInput = document.querySelector("#todo-name");
 const todoDateInput = document.querySelector("#todo-date");
 
 function openPopup() {
-  popup.classList.add("popup_opened");
+  popup.classList.add("popup_visible");
 }
 
 function closePopup() {
-  popup.classList.remove("popup_opened");
+  popup.classList.remove("popup_visible");
 }
 
 function renderTodo(data) {

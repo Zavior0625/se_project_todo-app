@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Inter";
+  src: local("Arial");
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+}
