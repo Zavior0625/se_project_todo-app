@@ -24,23 +24,22 @@ export default class Todo {
   getView() {
     this._element = this._getTemplate();
 
-    this._checkbox = this._element.querySelector(".todo__completed");
-    this._deleteButton = this._element.querySelector(".todo__delete-btn");
-    this._todoName = this._element.querySelector(".todo__name");
+    const todoNameEl = this._element.querySelector(".todo__name");
+    todoNameEl.textContent = this._data.name;
 
-    const label = this._element.querySelector(".todo__label");
+    const dateEl = this._element.querySelector(".todo__date");
 
-    this._todoName.textContent = this._data.name;
+    if (dateEl && this._data.date) {
+      const date = new Date(this._data.date);
 
-    this._checkbox.id = this._data.id;
-    label.setAttribute("for", this._data.id);
+      date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-    if (this._data.completed) {
-      this._checkbox.checked = true;
-      this._todoName.classList.add("todo__name_completed");
+      dateEl.textContent = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
     }
-
-    this._setEventListeners();
 
     return this._element;
   }

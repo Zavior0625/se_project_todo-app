@@ -47,23 +47,23 @@ closeButton.addEventListener("click", () => {
   closePopup();
 });
 
+const formValidator = new FormValidator(validationConfig, formElement);
+formValidator.enableValidation();
+
 formElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
-  const todoData = {
-    name: todoNameInput.value,
-    date: todoDateInput.value,
-    completed: false,
-    id: uuidv4(),
-  };
-
-  renderTodo(todoData);
-
   formValidator.resetValidation();
 
-  closePopup();
+  const inputValues = {
+    name: inputElement.value,
+    date: dateInput.value,
+  };
+
+  const todo = new Todo(inputValues, "#todo-template");
+  const todoElement = todo.getView();
+
+  todosContainer.prepend(todoElement);
+
+  formElement.reset();
 });
-
-const formValidator = new FormValidator(validationConfig, formElement);
-
-formValidator.enableValidation();
