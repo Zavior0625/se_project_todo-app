@@ -53,17 +53,13 @@ formValidator.enableValidation();
 formElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
 
-  formValidator.resetValidation();
-
   const inputValues = {
-    name: inputElement.value,
-    date: dateInput.value,
+    name: todoNameInput.value,
+    date: todoDateInput.value,
   };
 
-  const todo = new Todo(inputValues, "#todo-template");
-  const todoElement = todo.getView();
+  renderTodo(inputValues);
 
-  todosContainer.prepend(todoElement);
-
-  formElement.reset();
+  formValidator.resetValidation();
+  closePopup();
 });

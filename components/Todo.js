@@ -31,7 +31,6 @@ export default class Todo {
 
     if (dateEl && this._data.date) {
       const date = new Date(this._data.date);
-
       date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
       dateEl.textContent = date.toLocaleDateString("en-US", {
@@ -40,6 +39,12 @@ export default class Todo {
         day: "numeric",
       });
     }
+
+    this._checkbox = this._element.querySelector(".todo__completed");
+    this._deleteButton = this._element.querySelector(".todo__delete-btn");
+    this._todoName = this._element.querySelector(".todo__name");
+
+    this._setEventListeners();
 
     return this._element;
   }
