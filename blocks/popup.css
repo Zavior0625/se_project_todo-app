@@ -153,6 +153,11 @@
   color: red;
 }
 
+.popup__button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 @media screen and (max-width: 630px) {
   .popup {
     align-items: flex-end;
