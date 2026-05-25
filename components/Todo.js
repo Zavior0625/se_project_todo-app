@@ -1,10 +1,10 @@
 export default class Todo {
-  constructor(data, selector, handlers) {
+  constructor(data, selector, { handleCheckboxChange, handleDelete }) {
     this._data = data;
     this._selector = selector;
 
-    this._handleCheckboxChange = handlers.handleCheckboxChange;
-    this._handleDelete = handlers.handleDelete;
+    this._handleCheckboxChange = handleCheckboxChange;
+    this._handleDelete = handleDelete;
   }
 
   _getTemplate() {
