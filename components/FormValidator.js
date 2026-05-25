@@ -46,6 +46,10 @@ export default class FormValidator {
 
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
+      if (inputElement.type === "date") {
+        return false;
+      }
+
       return !inputElement.validity.valid;
     });
   }
