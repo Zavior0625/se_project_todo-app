@@ -1,19 +1,16 @@
 export const initialTodos = [
   {
-    name: "Learn JavaScript",
+    name: "Todo 1",
+    date: "2026-05-24",
     completed: false,
-  },
-  {
-    name: "Build To-Do App",
-    completed: true,
   },
 ];
 
 export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
+  submitButtonSelector: ".popup__save",
+  inactiveButtonClass: "popup__save_disabled",
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
