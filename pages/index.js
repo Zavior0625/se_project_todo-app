@@ -1,10 +1,19 @@
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithForms from "../components/PopupWithForms.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 import { initialTodos, validationConfig } from "../utils/constants.js";
+
+function uuidv4() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+
+    return v.toString(16);
+  });
+}
 
 const addButton = document.querySelector(".header__button");
 
@@ -44,6 +53,7 @@ todoSection.renderItems();
 
 const addTodoPopup = new PopupWithForm("#add-todo-popup", (data) => {
   const todoData = {
+    id: uuidv4(),
     name: data.name,
     date: data.date,
     completed: false,
@@ -58,14 +68,15 @@ const addTodoPopup = new PopupWithForm("#add-todo-popup", (data) => {
 
 addTodoPopup.setEventListeners();
 
-addButton.addEventListener("click", () => {
-  formValidator.resetValidation();
-  addTodoPopup.open();
-});
-
 const formValidator = new FormValidator(
   validationConfig,
   document.querySelector(".popup__form"),
 );
 
 formValidator.enableValidation();
+
+addButton.addEventListener("click", () => {
+  formValidator.resetValidation();
+
+  addTodoPopup.open();
+});

@@ -32,16 +32,17 @@ export default class Todo {
     this._element = this._getTemplate();
 
     this._todoName = this._element.querySelector(".todo__name");
+
     this._todoName.textContent = this._data.name;
 
-    const dateEl = this._element.querySelector(".todo__date");
+    const dateElement = this._element.querySelector(".todo__date");
 
-    if (dateEl && this._data.date) {
+    if (this._data.date) {
       const date = new Date(this._data.date);
 
       date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-      dateEl.textContent = date.toLocaleDateString("en-US", {
+      dateElement.textContent = date.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -49,6 +50,13 @@ export default class Todo {
     }
 
     this._checkbox = this._element.querySelector(".todo__completed");
+
+    this._checkbox.id = `todo-${this._data.id}`;
+
+    const label = this._element.querySelector(".todo__label");
+
+    label.setAttribute("for", `todo-${this._data.id}`);
+
     this._deleteButton = this._element.querySelector(".todo__delete-btn");
 
     if (this._data.completed) {
