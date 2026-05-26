@@ -1,7 +1,7 @@
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import PopupWithForms from "../components/PopupWithForms.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 import { initialTodos, validationConfig } from "../utils/constants.js";
