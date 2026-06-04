@@ -3,17 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
-
-import { initialTodos, validationConfig } from "../utils/constants.js";
-
-function uuidv4() {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0;
-    const v = c === "x" ? r : (r & 0x3) | 0x8;
-
-    return v.toString(16);
-  });
-}
+import { initialTodos, validationConfig, uuidv4 } from "../utils/constants.js";
 
 const addButton = document.querySelector(".header__button");
 
@@ -42,7 +32,6 @@ const todoSection = new Section({
 
   renderer: (item) => {
     const todoElement = createTodo(item);
-
     todoSection.addItem(todoElement);
   },
 
@@ -77,6 +66,5 @@ formValidator.enableValidation();
 
 addButton.addEventListener("click", () => {
   formValidator.resetValidation();
-
   addTodoPopup.open();
 });

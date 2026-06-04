@@ -127,6 +127,7 @@
 .popup__error_visible {
   opacity: 1;
   margin-top: 8px;
+  color: red;
 }
 
 .popup__button {
@@ -147,10 +148,6 @@
 
 .popup__input_type_error {
   border: 1px solid red;
-}
-
-.popup__error_visible {
-  color: red;
 }
 
 @media screen and (max-width: 630px) {
