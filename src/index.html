@@ -2,12 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Simple ToDo App</title>
-
-    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Todo App</title>
   </head>
 
   <body>
@@ -37,7 +33,6 @@
 
                 <label class="todo__label">
                   <span class="todo__name"></span>
-
                   <span class="todo__date"></span>
                 </label>
 
@@ -72,12 +67,12 @@
               <input
                 class="popup__input"
                 id="todo-name"
-                maxlength="40"
-                minlength="2"
                 name="name"
-                placeholder="Write here"
-                required
                 type="text"
+                placeholder="Write here"
+                minlength="2"
+                maxlength="40"
+                required
               />
 
               <span class="popup__error" id="todo-name-error"></span>
@@ -101,7 +96,5 @@
         </form>
       </div>
     </div>
-
-    <script type="module" src="./pages/index.js"></script>
   </body>
 </html>

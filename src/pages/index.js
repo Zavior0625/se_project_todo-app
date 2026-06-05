@@ -1,10 +1,11 @@
+import "./index.css";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
-import { initialTodos, validationConfig, uuidv4 } from "../utils/constants.js";
-
+import { initialTodos, validationConfig } from "../utils/constants.js";
+import { v4 as uuidv4 } from "uuid";
 const addButton = document.querySelector(".header__button");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
